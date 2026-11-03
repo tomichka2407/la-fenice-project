@@ -1,0 +1,770 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Discover the history, architecture and rebirth of Teatro La Fenice in Venice.">
+<title>La Fenice — A Theatre Reborn</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --black: #11100f;
+  --dark: #191715;
+  --gold: #c6a56b;
+  --cream: #eee7dc;
+  --muted: #aaa197;
+  --line: rgba(198,165,107,.3);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--black);
+  color: var(--cream);
+  font-family: "DM Sans", sans-serif;
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.container {
+  width: min(1160px, 88%);
+  margin: auto;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(17,16,15,.94);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(12px);
+}
+
+.nav {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.logo {
+  font-family: "Cormorant Garamond", serif;
+  color: var(--gold);
+  font-size: 29px;
+  letter-spacing: 3px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: color .3s;
+}
+
+.nav-links a:hover {
+  color: var(--gold);
+}
+
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--gold);
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.hero {
+  min-height: 690px;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(90deg, rgba(10,9,8,.95), rgba(10,9,8,.45)),
+    url("https://images.unsplash.com/photo-1503095396549-807759245b35?auto=format&fit=crop&w=2000&q=85")
+    center/cover;
+}
+
+.hero-content {
+  max-width: 720px;
+  padding: 100px 0;
+}
+
+.eyebrow {
+  color: var(--gold);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-size: 11px;
+  margin-bottom: 22px;
+}
+
+h1, h2, h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 500;
+}
+
+h1 {
+  font-size: clamp(55px, 8vw, 100px);
+  line-height: .95;
+  margin-bottom: 28px;
+}
+
+h1 span {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.hero p {
+  max-width: 510px;
+  color: #d1c8bd;
+  font-size: 16px;
+  margin-bottom: 35px;
+}
+
+.button {
+  display: inline-block;
+  padding: 14px 25px;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  background: transparent;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.button:hover {
+  background: var(--gold);
+  color: var(--black);
+}
+
+section.content-section {
+  padding: 110px 0;
+  scroll-margin-top: 85px;
+}
+
+.section-heading {
+  max-width: 650px;
+  margin-bottom: 55px;
+}
+
+.section-heading h2 {
+  font-size: clamp(40px, 6vw, 65px);
+  line-height: 1.05;
+  margin-bottom: 20px;
+}
+
+.section-heading h2 span {
+  color: var(--gold);
+}
+
+.section-heading p {
+  color: var(--muted);
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 65px;
+  align-items: center;
+}
+
+.story-image {
+  height: 490px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.story-copy p {
+  color: var(--muted);
+  margin: 20px 0;
+}
+
+.story-copy h3 {
+  font-size: 34px;
+  color: var(--gold);
+}
+
+.acts {
+  background: var(--dark);
+}
+
+.act-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.act-card {
+  border: 1px solid var(--line);
+  padding: 35px;
+  min-height: 280px;
+  transition: transform .3s, background .3s;
+}
+
+.act-card:hover {
+  transform: translateY(-7px);
+  background: #211e1a;
+}
+
+.act-number {
+  color: var(--gold);
+  letter-spacing: 3px;
+  font-size: 11px;
+}
+
+.act-card h3 {
+  font-size: 35px;
+  margin: 20px 0;
+}
+
+.act-card p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.map-section {
+  background:
+    linear-gradient(rgba(17,16,15,.94), rgba(17,16,15,.97)),
+    url("https://images.unsplash.com/photo-1514890547357-a9ee288728e0?auto=format&fit=crop&w=1800&q=80")
+    center/cover;
+}
+
+.map-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px;
+  align-items: center;
+}
+
+.map-visual {
+  min-height: 430px;
+  position: relative;
+  background: url("https://images.unsplash.com/photo-1514890547357-a9ee288728e0?auto=format&fit=crop&w=1100&q=80") center/cover;
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.map-visual::after {
+  content: "VENICE · ITALY";
+  position: absolute;
+  bottom: 18px;
+  left: 20px;
+  color: white;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-shadow: 0 2px 8px #000;
+}
+
+.pin {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--black);
+  border: 2px solid white;
+  cursor: pointer;
+  font-weight: 700;
+  transform: translate(-50%, -50%);
+  transition: transform .2s;
+}
+
+.pin:hover {
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+.point-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.point-link {
+  padding: 14px;
+  text-align: left;
+  color: var(--cream);
+  background: var(--dark);
+  border: 1px solid var(--line);
+  cursor: pointer;
+  transition: .2s;
+}
+
+.point-link:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.point-link small {
+  display: block;
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+}
+
+.ar-section {
+  background: var(--dark);
+}
+
+.ar-box {
+  padding: 65px;
+  border: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.ar-box h2 {
+  font-size: 55px;
+  line-height: 1.05;
+  margin-bottom: 20px;
+}
+
+.ar-box p {
+  color: var(--muted);
+  margin-bottom: 25px;
+}
+
+.ar-visual {
+  min-height: 330px;
+  background:
+    linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.5)),
+    url("https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1000&q=80")
+    center/cover;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+}
+
+.ar-symbol {
+  font-family: "Cormorant Garamond", serif;
+  color: var(--gold);
+  font-size: 100px;
+  text-shadow: 0 0 35px rgba(198,165,107,.7);
+}
+
+footer {
+  padding: 55px 0;
+  text-align: center;
+  border-top: 1px solid var(--line);
+}
+
+footer .logo {
+  margin-bottom: 15px;
+}
+
+footer p {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(0,0,0,.8);
+  display: none;
+  place-items: center;
+  padding: 20px;
+}
+
+.modal.active {
+  display: grid;
+}
+
+.modal-content {
+  width: min(520px, 100%);
+  background: var(--dark);
+  border: 1px solid var(--gold);
+  padding: 40px;
+  position: relative;
+}
+
+.modal-content h3 {
+  color: var(--gold);
+  font-size: 38px;
+  margin-bottom: 15px;
+}
+
+.modal-content p {
+  color: var(--muted);
+}
+
+.close {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  color: var(--gold);
+  border: 0;
+  background: none;
+  font-size: 27px;
+  cursor: pointer;
+}
+
+@media (max-width: 800px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 78px;
+    left: 0;
+    right: 0;
+    padding: 25px;
+    background: var(--dark);
+    flex-direction: column;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .story-grid,
+  .map-layout,
+  .ar-box {
+    grid-template-columns: 1fr;
+  }
+
+  .act-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ar-box {
+    padding: 30px;
+  }
+
+  .story-image {
+    height: 330px;
+  }
+}
+
+@media (max-width: 480px) {
+  .point-list {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    min-height: 590px;
+  }
+
+  section.content-section {
+    padding: 75px 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <nav class="nav container" aria-label="Main navigation">
+    <a class="logo" href="#home">LA FENICE</a>
+
+    <button class="menu-toggle" id="menuToggle"
+      aria-label="Open navigation menu" aria-expanded="false">
+      MENU
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#story">The Story</a></li>
+      <li><a href="#acts">History</a></li>
+      <li><a href="#explore">Explore</a></li>
+      <li><a href="#ar">AR Experience</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="home">
+
+<section class="hero">
+  <div class="container hero-content">
+    <div class="eyebrow">Venice · Italy · Since 1792</div>
+    <h1>A Theatre<br><span>Reborn</span></h1>
+    <p>
+      Discover the extraordinary story of Teatro La Fenice —
+      a symbol of art, resilience and the eternal power of rebirth.
+    </p>
+    <a class="button" href="#story">Discover the story</a>
+  </div>
+</section>
+
+<section class="content-section" id="story">
+  <div class="container story-grid">
+    <img class="story-image"
+      src="https://images.unsplash.com/photo-1503095396549-807759245b35?auto=format&fit=crop&w=1000&q=85"
+      alt="An atmospheric view of a theatre interior">
+
+    <div class="story-copy">
+      <div class="eyebrow">The legend of La Fenice</div>
+      <h2 style="font-family:'Cormorant Garamond';font-size:55px">
+        More than a <span style="color:var(--gold)">theatre</span>
+      </h2>
+      <p>
+        Teatro La Fenice is one of the most celebrated opera houses
+        in the world. Its name means "The Phoenix", a powerful symbol
+        of renewal and survival.
+      </p>
+      <p>
+        Throughout its history, the theatre faced destruction by fire
+        more than once. Yet each time it rose again, preserving its
+        place in the cultural life of Venice.
+      </p>
+      <a href="#acts" class="button">Explore its history</a>
+    </div>
+  </div>
+</section>
+
+<section class="content-section acts" id="acts">
+  <div class="container">
+    <div class="section-heading">
+      <div class="eyebrow">Three chapters</div>
+      <h2>The story of <span>rebirth</span></h2>
+      <p>Three defining moments that shaped the identity of La Fenice.</p>
+    </div>
+
+    <div class="act-grid">
+      <article class="act-card">
+        <div class="act-number">CHAPTER 01</div>
+        <h3>The Birth</h3>
+        <p>
+          Opened in 1792, La Fenice quickly became an important
+          centre of opera and artistic life in Venice.
+        </p>
+      </article>
+
+      <article class="act-card">
+        <div class="act-number">CHAPTER 02</div>
+        <h3>The Fall</h3>
+        <p>
+          Fires destroyed the theatre in 1836 and again in 1996,
+          threatening an important part of Venetian heritage.
+        </p>
+      </article>
+
+      <article class="act-card">
+        <div class="act-number">CHAPTER 03</div>
+        <h3>The Rebirth</h3>
+        <p>
+          Rebuilt and reopened in 2003, the theatre returned
+          as a living symbol of resilience and cultural memory.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="content-section map-section" id="explore">
+  <div class="container">
+    <div class="section-heading">
+      <div class="eyebrow">An interactive journey</div>
+      <h2>Explore <span>La Fenice</span></h2>
+      <p>
+        Select a numbered point to discover a part of the theatre's
+        history, architecture and artistic heritage.
+      </p>
+    </div>
+
+    <div class="map-layout">
+      <div class="map-visual" role="img" aria-label="Illustrative map of Venice">
+        <button class="pin" style="left:25%;top:35%" onclick="openPoint(1)" aria-label="Point 1">1</button>
+        <button class="pin" style="left:45%;top:25%" onclick="openPoint(2)" aria-label="Point 2">2</button>
+        <button class="pin" style="left:70%;top:40%" onclick="openPoint(3)" aria-label="Point 3">3</button>
+        <button class="pin" style="left:35%;top:60%" onclick="openPoint(4)" aria-label="Point 4">4</button>
+        <button class="pin" style="left:60%;top:70%" onclick="openPoint(5)" aria-label="Point 5">5</button>
+        <button class="pin" style="left:80%;top:60%" onclick="openPoint(6)" aria-label="Point 6">6</button>
+        <button class="pin" style="left:15%;top:75%" onclick="openPoint(7)" aria-label="Point 7">7</button>
+        <button class="pin" style="left:50%;top:48%" onclick="openPoint(8)" aria-label="Point 8">8</button>
+        <button class="pin" style="left:85%;top:25%" onclick="openPoint(9)" aria-label="Point 9">9</button>
+        <button class="pin" style="left:65%;top:15%" onclick="openPoint(10)" aria-label="Point 10">10</button>
+      </div>
+
+      <div class="point-list" id="pointList"></div>
+    </div>
+  </div>
+</section>
+
+<section class="content-section ar-section" id="ar">
+  <div class="container ar-box">
+    <div>
+      <div class="eyebrow">Beyond the visible</div>
+      <h2>History comes <span style="color:var(--gold)">alive</span></h2>
+      <p>
+        Imagine pointing your smartphone at a historical image
+        and watching the story unfold through augmented reality.
+        Explore archival photographs, historical facts and visual
+        reconstructions connected to the real theatre.
+      </p>
+      <button class="button" onclick="showAR()">Try the AR concept</button>
+    </div>
+    
+      <div class="map-visual" role="img" aria-label="Illustrative map of Venice">
+
+      <div class="ar-symbol">✦</div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="logo">LA FENICE</div>
+    <p>A Theatre Reborn · Cultural Heritage Project</p>
+    <p style="margin-top:10px">Venice, Italy</p>
+  </div>
+</footer>
+
+<div class="modal" id="modal" role="dialog"
+  aria-modal="true" aria-labelledby="modalTitle"
+  onclick="if(event.target===this)closeModal()">
+
+  <div class="modal-content">
+    <button class="close" onclick="closeModal()" aria-label="Close dialog">×</button>
+    <div class="eyebrow" id="modalEyebrow">DISCOVER</div>
+    <h3 id="modalTitle">The story</h3>
+    <p id="modalText"></p>
+  </div>
+</div>
+
+<script>
+const points = [
+  {
+    title: "The Facade",
+    text: "The exterior of La Fenice reflects the elegance and architectural identity of the Venetian opera house."
+  },
+  {
+    title: "The Phoenix",
+    text: "The phoenix represents renewal. It gives the theatre its name and expresses its remarkable history of survival."
+  },
+  {
+    title: "The Auditorium",
+    text: "The auditorium is famous for its elegant boxes, rich decoration and traditional opera-house atmosphere."
+  },
+  {
+    title: "The Royal Box",
+    text: "The Royal Box is one of the most recognisable elements of the theatre's ceremonial interior."
+  },
+  {
+    title: "The Stage",
+    text: "The stage is where opera, music and theatrical performances bring the building to life."
+  },
+  {
+    title: "The Apollinee Rooms",
+    text: "The Sale Apollinee are elegant rooms used for cultural events and gatherings."
+  },
+  {
+    title: "The First Fire",
+    text: "A fire destroyed the original theatre in 1836. The building was subsequently reconstructed."
+  },
+  {
+    title: "The Second Fire",
+    text: "In January 1996, another devastating fire destroyed the theatre, leaving only its memory and history."
+  },
+  {
+    title: "The Reconstruction",
+    text: "The reconstruction project aimed to restore the theatre while respecting its historical identity."
+  },
+  {
+    title: "The Reopening",
+    text: "La Fenice reopened in 2003, continuing its role as one of Venice's great cultural landmarks."
+  }
+];
+
+const list = document.getElementById("pointList");
+
+points.forEach((point, index) => {
+  const item = document.createElement("button");
+  item.className = "point-link";
+  item.type = "button";
+  item.innerHTML =
+    `<small>POINT ${String(index + 1).padStart(2, "0")}</small>${point.title}`;
+  item.addEventListener("click", () => openPoint(index + 1));
+  list.appendChild(item);
+});
+
+function openPoint(number) {
+  const point = points[number - 1];
+  if (!point) return;
+
+  document.getElementById("modalEyebrow").textContent =
+    `AR LOCATION ${String(number).padStart(2, "0")}`;
+  document.getElementById("modalTitle").textContent = point.title;
+  document.getElementById("modalText").textContent = point.text;
+  document.getElementById("modal").classList.add("active");
+}
+
+function showAR() {
+  document.getElementById("modalEyebrow").textContent = "AR DEMONSTRATION";
+  document.getElementById("modalTitle").textContent = "A window into history";
+  document.getElementById("modalText").textContent =
+    "This is a conceptual demonstration of the augmented reality experience. " +
+    "A final version would use camera access and image recognition to display " +
+    "digital content when a real target image is detected.";
+  document.getElementById("modal").classList.add("active");
+}
+
+function closeModal() {
+  document.getElementById("modal").classList.remove("active");
+}
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") closeModal();
+});
+
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", () => {
+  const isOpen = navLinks.classList.toggle("open");
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+});
+
+navLinks.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+  });
+});
+</script>
+
+</body>
+</html>
+
